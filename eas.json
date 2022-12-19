@@ -10,7 +10,9 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "API_URL": "https://tennis-maps.herokuapp.com/api"
+    }
   },
   "submit": {
     "production": {}
