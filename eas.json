@@ -11,7 +11,9 @@
       "distribution": "internal"
     },
     "production": {
-      "API_URL": "https://tennis-maps.herokuapp.com/api"
+      "env": {
+        "API_URL": "https://tennis-maps.herokuapp.com/api"
+      }
     }
   },
   "submit": {
