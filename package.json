@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "6.2.0",
+    "@react-native-firebase/app": "^16.5.0",
+    "@react-native-firebase/crashlytics": "^16.5.0",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
     "axios": "^0.27.2",
