@@ -3,7 +3,7 @@
     "name": "tennis-rn",
     "slug": "tennis-app",
     "owner": "tennisapp",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -32,7 +32,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.tennismaps",
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
