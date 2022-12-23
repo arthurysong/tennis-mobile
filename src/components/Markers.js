@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import * as Location from "expo-location";
 import { TENNIS_COURT_REPORT_REQUEST } from "Constants";
 import * as Notifications from "expo-notifications";
+import crashlytics from "@react-native-firebase/crashlytics";
 
 export default function Markers({
   tennisCourts,
@@ -30,6 +31,7 @@ export default function Markers({
     };
 
     console.log("listening for tc...");
+    crashlytics().log(`start listening for tennis court`);
     await Location.startGeofencingAsync(TENNIS_COURT_REPORT_REQUEST, [region]);
   };
 

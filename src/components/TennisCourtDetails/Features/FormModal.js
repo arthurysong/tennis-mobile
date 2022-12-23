@@ -15,6 +15,7 @@ export default function FormModal({ children, isVisible, onDismiss }) {
       isVisible={isVisible}
       onBackButtonPress={onDismiss}
       onBackdropPress={onDismiss}
+      useNativeDriver
       backdropOpacity={0}
     >
       <View

@@ -9,6 +9,7 @@ import {
   Image,
   Text,
   Pressable,
+  StatusBar,
 } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { RecoilRoot, useRecoilState } from "recoil";
@@ -33,13 +34,19 @@ import {
   Provider as PaperProvider,
 } from "react-native-paper";
 import theme from "./src/paper/theme";
+import crashlytics from "@react-native-firebase/crashlytics";
+import { getUniqueDeviceID } from "Helpers/getUniqueDeviceId";
 
 const Stack = createNativeStackNavigator();
+StatusBar.setBarStyle("dark-content", true);
 
 TaskManager.defineTask(
   TENNIS_COURT_REPORT_REQUEST,
   ({ data: { eventType, region }, error }) => {
     if (error) {
+      crashlytics().log(
+        "Event error for TENNIS_COURT_REPORT_REQUEST: " + error.message
+      );
       // check `error.message` for more details.
       return;
     }
@@ -48,6 +55,7 @@ TaskManager.defineTask(
       const tennisCourt = getRecoil(tennisCourtState);
       setRecoil(reportModalState, !reportModal);
 
+      crashlytics().log("Sending notification..");
       Notifications.scheduleNotificationAsync({
         content: {
           title: tennisCourt.name,
@@ -57,8 +65,10 @@ TaskManager.defineTask(
       });
 
       console.log("You've entered region:", region);
+      crashlytics().log("You've entered region: " + region);
     } else if (eventType === GeofencingEventType.Exit) {
       console.log("You've left region:", region);
+      crashlytics().log("You've left the region: " + region);
     }
   }
 );
@@ -103,6 +113,12 @@ export const HeaderRight = () => {
 };
 
 export default function App() {
+  React.useEffect(async () => {
+    const uniqId = await getUniqueDeviceID();
+    await crashlytics().setAttribute("deviceID", uniqId);
+    crashlytics().log(`app mounted for device ${uniqId}`);
+  }, []);
+
   return (
     <RecoilRoot>
       <React.Suspense fallback={<LoadingScreen />}>

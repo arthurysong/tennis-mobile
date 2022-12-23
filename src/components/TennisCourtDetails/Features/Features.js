@@ -36,48 +36,46 @@ export default function Features({ tennisCourt, setTennisCourt }) {
   };
 
   return (
-    <Provider>
-      <View style={styles.features}>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            padding: 24,
-            paddingHorizontal: 44,
-          }}
-        >
-          <Feature
-            featureName="numCourts"
-            iconImage={court}
-            subText={
-              !tennisCourt.numCourts ? "?" : "* " + tennisCourt.numCourts
-            }
-            featureText="Courts"
-            forSuggestionForm={forSuggestionForm}
-          />
-          <Feature
-            featureName="lights"
-            iconImage={light}
-            subText={subTextForLights()}
-            featureText="Lights"
-            forSuggestionForm={forSuggestionForm}
-            grey={tennisCourt.lights === false}
-          />
-          <Feature
-            featureName="courtType"
-            iconImage={variation}
-            subText={
-              !tennisCourt.courtType
-                ? "?"
-                : "* " + courtTypes[tennisCourt.courtType]
-            }
-            featureText="Court Type"
-            forSuggestionForm={forSuggestionForm}
-          />
-        </View>
+    // <Provider>
+    <View style={styles.features}>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          padding: 24,
+          paddingHorizontal: 44,
+        }}
+      >
+        <Feature
+          featureName="numCourts"
+          iconImage={court}
+          subText={!tennisCourt.numCourts ? "?" : "* " + tennisCourt.numCourts}
+          featureText="Courts"
+          forSuggestionForm={forSuggestionForm}
+        />
+        <Feature
+          featureName="lights"
+          iconImage={light}
+          subText={subTextForLights()}
+          featureText="Lights"
+          forSuggestionForm={forSuggestionForm}
+          grey={tennisCourt.lights === false}
+        />
+        <Feature
+          featureName="courtType"
+          iconImage={variation}
+          subText={
+            !tennisCourt.courtType
+              ? "?"
+              : "* " + courtTypes[tennisCourt.courtType]
+          }
+          featureText="Court Type"
+          forSuggestionForm={forSuggestionForm}
+        />
       </View>
-    </Provider>
+    </View>
+    // </Provider>
   );
 }
 

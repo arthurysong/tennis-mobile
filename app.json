@@ -3,13 +3,14 @@
     "name": "tennis-rn",
     "slug": "tennis-app",
     "owner": "tennisapp",
-    "version": "2.0.0",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "plugins": [
       "@react-native-firebase/app",
-      "@react-native-firebase/crashlytics"
+      "@react-native-firebase/crashlytics",
+      "@config-plugins/android-jsc-intl"
     ],
     "splash": {
       "image": "./assets/splash.png",
@@ -33,7 +34,12 @@
       },
       "package": "com.tennismaps",
       "googleServicesFile": "./google-services.json",
-      "versionCode": 2
+      "versionCode": 9,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDLBQ00-lyV8RwXqqs4rJAi95i62FhcDDw"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
